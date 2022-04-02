@@ -7,13 +7,15 @@ module.exports = function (app) {
 
   app.route("/api/check").post((req, res) => {
     // Input Check
-    let puzzle = arrPuzzle(req.body.puzzle) || "";
+    let puzzleInput = req.body.puzzle || ""
+    let puzzle = arrPuzzle(puzzleInput) || "";
     let coordinate = req.body.coordinate || "";
     let value = req.body.value || "";
-    if (!req.body.puzzle || !coordinate || !value) return res.json({ error: "Required field(s) missing" });
 
-    let val = solver.validate(req.body.puzzle);
+    let val = solver.validate(puzzleInput);
     if(val?.error) return res.json(val)
+
+    if (!puzzleInput || !coordinate || !value) return res.json({ error: "Required field(s) missing" });
     
     if (coordinate.length > 2 || !/[a-iA-I]/.test(coordinate[0]) || !/[0-9]/.test(coordinate[1])) return res.json({ error: "Invalid coordinate" });
     if (value > 9 || value < 1) return res.json({ error: "Invalid value" });
