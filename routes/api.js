@@ -7,9 +7,6 @@ module.exports = function (app) {
 
   app.route("/api/check").post((req, res) => {
     // Input Check
-
-    console.log(req.body)
-
     let puzzleInput = req.body.puzzle || ""
     let coordinate = req.body.coordinate || "";
     let value = req.body.value || "";
