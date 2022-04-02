@@ -17,7 +17,7 @@ class SudokuSolver {
   checkColPlacement(puzzle, row, column, value) {
     if (puzzle[row][column] === value) return null;
     for (let i = 0; i < 9; i++) {
-      if (puzzle[i][column] === value) return "col";
+      if (puzzle[i][column] === value) return "column";
     }
     return null;
   }

@@ -86,7 +86,7 @@ suite("Functional Tests", () => {
       .end(function (err, res) {
         assert.equal(res.status, 200);
         assert.isFalse(res.body.valid);
-        assert.equal(res.body.conflict[0], "col");
+        assert.equal(res.body.conflict[0], "column");
         done();
       });
   });
@@ -112,7 +112,7 @@ suite("Functional Tests", () => {
         assert.equal(res.status, 200);
         assert.isFalse(res.body.valid);
         assert.equal(res.body.conflict[0], "row");
-        assert.equal(res.body.conflict[1], "col");
+        assert.equal(res.body.conflict[1], "column");
         assert.equal(res.body.conflict[2], "region");
         done();
       });

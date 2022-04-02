@@ -28,7 +28,7 @@ suite('UnitTests', () => {
         assert.isNull(solver.checkColPlacement(testArr, alphaVal('A'), 3, 7))
     })
     test('#invalid Col', () => {
-        assert.equal(solver.checkColPlacement(testArr, alphaVal('A'), 3, 1), "col")
+        assert.equal(solver.checkColPlacement(testArr, alphaVal('A'), 3, 1), "column")
     })
     test('#valid region', () => {
         assert.isNull(solver.checkRegionPlacement(testArr, alphaVal('A'), 3, 7))
