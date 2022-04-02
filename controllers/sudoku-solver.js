@@ -1,6 +1,6 @@
 class SudokuSolver {
   validate(puzzleString, res) {
-    if (puzzleString === "") return { error: "Required field missing" };
+    if (puzzleString === "") return { error: "Required field(s) missing" };
     let puzzleRegex = /(^(\.+)?(([0-9]+)?(\.+)?)+$)/g;
     if (!puzzleRegex.test(puzzleString)) return  { error: "Invalid characters in puzzle" }
     if (puzzleString.length !== 81) return { error: "Expected puzzle to be 81 characters long" };
