@@ -7,6 +7,9 @@ module.exports = function (app) {
 
   app.route("/api/check").post((req, res) => {
     // Input Check
+
+    console.log(req.body)
+
     let puzzleInput = req.body.puzzle || ""
     let coordinate = req.body.coordinate || "";
     let value = req.body.value || "";
@@ -18,7 +21,7 @@ module.exports = function (app) {
     
     let puzzle = arrPuzzle(puzzleInput) || "";
     
-    if (coordinate.length > 2 || !/[a-iA-I]/.test(coordinate[0]) || !/[0-9]/.test(coordinate[1])) return res.json({ error: "Invalid coordinate" });
+    if (coordinate.length > 2 || !/[a-iA-I]/.test(coordinate[0]) || !/[1-9]/.test(coordinate[1])) return res.json({ error: "Invalid coordinate" });
     if (value > 9 || value < 1) return res.json({ error: "Invalid value" });
 
     let coordX = alphaVal(coordinate[0])
