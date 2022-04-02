@@ -39,7 +39,7 @@ module.exports = function (app) {
   });
 
   app.route("/api/solve").post((req, res) => {
-    let val = solver.validate(req.body.puzzle);
+    let val = solver.validate(req.body.puzzle || "");
     if(val?.error) return res.json(val)
     let puzzle = arrPuzzle(req.body.puzzle);
     let solution = solver.solve(puzzle)
