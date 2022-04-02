@@ -30,7 +30,7 @@ suite("Functional Tests", () => {
       .send({puzzle: ""})
       .end(function (err, res) {
         assert.equal(res.status, 200);
-        assert.equal(res.body.error, 'Required field(s) missing');
+        assert.equal(res.body.error, 'Required field missing');
         done();
       });
   });

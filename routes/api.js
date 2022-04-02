@@ -11,10 +11,10 @@ module.exports = function (app) {
     let coordinate = req.body.coordinate || "";
     let value = req.body.value || "";
     
+    if (!puzzleInput || !coordinate || !value) return res.json({ error: "Required field(s) missing" });
+
     let val = solver.validate(puzzleInput);
     if(val?.error) return res.json(val)
-
-    if (!puzzleInput || !coordinate || !value) return res.json({ error: "Required field(s) missing" });
     
     let puzzle = arrPuzzle(puzzleInput) || "";
     
