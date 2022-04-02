@@ -10,9 +10,9 @@ module.exports = function (app) {
     let val = solver.validate(req.body.puzzle);
     if(val?.error) return res.json(val)
     
-    let puzzle = arrPuzzle(req.body.puzzle);
-    let coordinate = req.body.coordinate;
-    let value = req.body.value;
+    let puzzle = arrPuzzle(req.body.puzzle) || "";
+    let coordinate = req.body.coordinate || "";
+    let value = req.body.value || "";
 
     if (!req.body.puzzle || !coordinate || !value) return res.json({ error: "Required field(s) missing" });
     if (coordinate.length > 2 || !/[a-iA-I]/.test(coordinate[0]) || !/[0-9]/.test(coordinate[1])) return res.json({ error: "Invalid coordinate" });
